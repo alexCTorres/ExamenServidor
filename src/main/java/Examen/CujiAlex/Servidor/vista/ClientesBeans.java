@@ -1,17 +1,16 @@
-package Examen.CujiAlex.Servidor.modelo;
+package Examen.CujiAlex.Servidor.vista;
 
-import java.io.Serializable;
-import java.util.Date;
+import javax.enterprise.context.RequestScoped;
+import javax.faces.view.facelets.Facelet;
+import javax.inject.Inject;
+import javax.inject.Named;
+import Examen.CujiAlex.Servidor.modelo.Cliente;
+import Examen.CujiAlex.Servidor.negocio.GestionClienteON;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+@Named
+@RequestScoped
+public class ClientesBeans {
 
-@Entity
-public class Cliente implements Serializable {
-
-	private static final long serialVersionUID = 1L;
-
-	@Id
 	private String identificacion;
 	private String nombres;
 	private String apellidos;
@@ -49,11 +48,13 @@ public class Cliente implements Serializable {
 		this.fechaNacimiento = fechaNacimiento;
 	}
 
-	@Override
-	public String toString() {
-		return "Cliente [identificacion=" + identificacion + ", nombres=" + nombres + ", apellidos=" + apellidos
-				+ ", fechaNacimiento=" + fechaNacimiento + "]";
+	public String doBuscar() {
+		Cliente c = new Cliente();
+		GestionClienteON clienteON = new GestionClienteON();
+		c = clienteON.buscarCliente(identificacion);
+		nombres = c.getNombres();
+		apellidos = c.getApellidos();
+		fechaNacimiento = c.getFechaNacimiento();
+		return null;
 	}
-
-	
 }

@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+
+	<h:head></h:head>
+	<h:body>
+	<h:panelGrid columns="2">
+	
+	<h:form>
+	
+	<h1>BUSCAR CLIENTE</h1>
+	<h:outputLabel value="IDENTIFICACION:" />
+	<h:inputText value="#{clientesBeans.identificacion}" />
+	
+	<h:outputLabel value="" />
+	<h:commandButton action="#{clientesBeans.doBuscar())}" value="BUSCAR" />
+	
+		<h:outputLabel value="NOMBRES" />
+	<h:inputText value="#{clientesBeans.nombres}" />
+	
+		<h:outputLabel value="APELLIDOS" />
+	<h:inputText value="#{clientesBeans.apellidos}" />
+	
+		<h:outputLabel value="FECHA NACIEMIENTO" />
+	<h:inputText value="#{clientesBeans.fechaNacimiento}" />
+	
+ 
+	</h:form>
+	</h:panelGrid>
+	</h:body>
+</html>
